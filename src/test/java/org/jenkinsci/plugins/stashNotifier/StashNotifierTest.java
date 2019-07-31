@@ -133,8 +133,8 @@ public class StashNotifierTest {
         when(build.getEnvironment(buildListener)).thenReturn(environment);
         when(action.getLastBuiltRevision()).thenReturn(revision);
         when(revision.getSha1String()).thenReturn(sha1);
-        when(build.getProject()).thenReturn(project);
-        when(run.getParent()).thenReturn(project);
+        doReturn(project).when(build).getProject();
+        doReturn(project).when(run).getParent();
         when(build.getFullDisplayName()).thenReturn("foo");
         when(build.getUrl()).thenReturn("foo");
         when(build.getActions(BuildData.class)).thenReturn(actions);
